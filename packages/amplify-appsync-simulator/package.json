@@ -1,14 +1,14 @@
 {
-  "name": "@aws-amplify/amplify-appsync-simulator",
-  "version": "2.16.4",
+  "name": "@james-cohen/amplify-appsync-simulator",
+  "version": "1.0.0",
   "description": "An AppSync Simulator to test AppSync API.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aws-amplify/amplify-cli.git",
+    "url": "https://github.com/james-cohen/amplify-cli.git",
     "directory": "packages/amplify-appsync-simulator"
   },
-  "author": "Amazon Web Services",
-  "license": "Apache-2.0",
+  "author": "james-cohen",
+  "license": "MIT",
   "main": "lib/index.js",
   "keywords": [
     "graphql",
