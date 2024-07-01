@@ -20,7 +20,7 @@
     "access": "public"
   },
   "scripts": {
-    "copy-assets": "rimraf ./public && copyfiles -u 3 \"../amplify-graphiql-explorer/build/**/*\" ./public",
+    "copy-assets": "yarn dlx rimraf ./public && yarn dlx copyfiles -u 3 \"../amplify-graphiql-explorer/build/**/*\" ./public",
     "build": "yarn copy-assets && tsc",
     "build-tests": "tsc --build tsconfig.tests.json",
     "clean": "rimraf ./lib tsconfig.tsbuildinfo tsconfig.tests.tsbuildinfo node_modules",
