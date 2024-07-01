@@ -127,18 +127,21 @@ export class VelocityTemplate {
           : {}),
       });
     } else if (requestContext.requestAuthorizationMode === AmplifyAppSyncSimulatorAuthenticationType.AWS_LAMBDA) {
-      identity = convertToJavaTypes({
-        sub,
-        issuer,
-        sourceIp,
-        'cognito:username': cognitoUserName,
-        username: username || cognitoUserName,
-        claims: requestContext.jwt,
-        ...(this.simulatorContext.appSyncConfig.defaultAuthenticationType.authenticationType ===
-        AmplifyAppSyncSimulatorAuthenticationType.AMAZON_COGNITO_USER_POOLS
-          ? { defaultAuthStrategy: 'ALLOW' }
-          : {}),
-      });
+      identity = {
+        isAuthorized: true,
+        resolverContext: convertToJavaTypes({
+          sub,
+          issuer,
+          sourceIp,
+          'cognito:username': cognitoUserName,
+          username: username || cognitoUserName,
+          claims: requestContext.jwt,
+          ...(this.simulatorContext.appSyncConfig.defaultAuthenticationType.authenticationType ===
+          AmplifyAppSyncSimulatorAuthenticationType.AMAZON_COGNITO_USER_POOLS
+            ? { defaultAuthStrategy: 'ALLOW' }
+            : {}),
+        }),
+      };
     } else if (requestContext.requestAuthorizationMode === AmplifyAppSyncSimulatorAuthenticationType.AWS_IAM) {
       identity = convertToJavaTypes({
         sourceIp,
