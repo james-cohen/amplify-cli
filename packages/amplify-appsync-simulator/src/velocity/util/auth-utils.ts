@@ -8,6 +8,8 @@ export const authUtils = (context) => ({
       return 'IAM Authorization';
     } else if (context.requestAuthorizationMode === AmplifyAppSyncSimulatorAuthenticationType.AMAZON_COGNITO_USER_POOLS) {
       return 'User Pool Authorization';
+    } else if (context.requestAuthorizationMode === AmplifyAppSyncSimulatorAuthenticationType.AWS_LAMBDA) {
+      return 'Lambda Authorization';
     } else if (context.requestAuthorizationMode === AmplifyAppSyncSimulatorAuthenticationType.OPENID_CONNECT) {
       return 'Open ID Connect Authorization';
     }

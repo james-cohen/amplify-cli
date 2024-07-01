@@ -1,6 +1,6 @@
 {
   "name": "@james-cohen/amplify-appsync-simulator",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "An AppSync Simulator to test AppSync API.",
   "repository": {
     "type": "git",

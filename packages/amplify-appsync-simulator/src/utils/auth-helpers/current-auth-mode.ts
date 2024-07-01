@@ -14,6 +14,7 @@ export function getAuthorizationMode(
   const isIamAllowed = allowedAuthTypes.includes(AmplifyAppSyncSimulatorAuthenticationType.AWS_IAM);
   const isCupAllowed = allowedAuthTypes.includes(AmplifyAppSyncSimulatorAuthenticationType.AMAZON_COGNITO_USER_POOLS);
   const isOidcAllowed = allowedAuthTypes.includes(AmplifyAppSyncSimulatorAuthenticationType.OPENID_CONNECT);
+  const isLambdaAllowed = allowedAuthTypes.includes(AmplifyAppSyncSimulatorAuthenticationType.AWS_LAMBDA);
 
   if (isApiKeyAllowed) {
     if (apiKey) {
@@ -41,6 +42,9 @@ export function getAuthorizationMode(
         }
       }
 
+      if (isLambdaAllowed) {
+        return AmplifyAppSyncSimulatorAuthenticationType.AWS_LAMBDA;
+      }
       if (isOidcAllowed) {
         const isOidcToken = isValidOIDCToken(jwtToken, [
           appSyncConfig.defaultAuthenticationType,
